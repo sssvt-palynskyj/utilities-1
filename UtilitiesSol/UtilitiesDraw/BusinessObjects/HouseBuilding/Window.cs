@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Drawing;
+using UtilitiesDraw.PaintersObjects;
 
 
 namespace UtilitiesDraw.BusinessObjects.HouseBuilding
@@ -84,7 +85,15 @@ namespace UtilitiesDraw.BusinessObjects.HouseBuilding
             return window;
         }
 
-
+        public override void DrawSelf(Graphics g, CanvasContext context)
+        {
+            float f = 6.9f;
+            using (Pen pen = new Pen(Color.Red, f))
+            {
+                g.DrawRectangle(pen, context.Left + f, context.Top + f,
+                                     context.Width - 2 * f, context.Height - 2 * f);
+            }
+        }
 
     }
 
